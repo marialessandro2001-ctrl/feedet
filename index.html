@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 
 <html lang="it">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Feedet — Analisi Preventivo Gratuita</title>
+  <title>Feedet — Analisi Gratuita Preventivi</title>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200;0,300;0,400;1,200;1,300&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -226,14 +227,12 @@ textarea { resize: vertical; min-height: 78px; }
         <label class="fl">Tipo di lavoro <span class="r">*</span></label>
         <select id="lav" required>
           <option value="" disabled selected>Seleziona il tipo di lavoro…</option>
-          <option value="Sostituzione caldaia">Sostituzione caldaia</option>
-          <option value="Installazione caldaia nuova">Installazione caldaia nuova</option>
-          <option value="Impianto idraulico bagno/cucina">Impianto idraulico bagno / cucina</option>
-          <option value="Riparazione impianto">Riparazione impianto</option>
-          <option value="Impianto riscaldamento">Impianto riscaldamento</option>
-          <option value="Impianto elettrico">Impianto elettrico</option>
-          <option value="Ristrutturazione">Ristrutturazione</option>
-          <option value="Altro">Altro</option>
+          <option value="Sostituzione caldaia">🔥 Sostituzione caldaia</option>
+          <option value="Installazione caldaia nuova">🔥 Installazione caldaia nuova</option>
+          <option value="Climatizzatore / Condizionamento">❄️ Climatizzatore / Condizionamento</option>
+          <option value="Impianto idraulico (bagno, cucina)">🚿 Impianto idraulico (bagno, cucina)</option>
+          <option value="Riparazione o manutenzione">🔧 Riparazione o manutenzione</option>
+          <option value="Impianto di riscaldamento">♨️ Impianto di riscaldamento</option>
         </select>
       </div>
       <div class="fg">
@@ -278,6 +277,11 @@ textarea { resize: vertical; min-height: 78px; }
   </div>
 </div>
 
+<div style="background:#0d1c2e;border-top:1px solid rgba(90,170,232,0.15);border-bottom:1px solid rgba(90,170,232,0.15);padding:20px 22px;text-align:center">
+  <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);margin-bottom:8px;letter-spacing:0.06em">Vuoi capire come funziona Feedet prima di inviare?</div>
+  <a href="come-funziona.html" style="display:inline-flex;align-items:center;gap:8px;background:#1e5faa;color:#ffffff;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;padding:11px 22px;border-radius:8px;text-decoration:none">Come funziona Feedet →</a>
+  <div style="font-size:0.65rem;color:rgba(255,255,255,0.2);margin-top:8px">Tariffe, processo e termini spiegati in modo chiaro</div>
+</div>
 <div class="footer">I tuoi dati vengono usati solo per analizzare il preventivo<br>Nessuna cessione a terzi · Nessuno spam</div>
 
 <script>
