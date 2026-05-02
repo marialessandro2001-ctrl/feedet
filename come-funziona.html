@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Come Funziona — Feedet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200;0,300;0,400;1,200;1,300&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #f2f5f9; color: #0c1e34; font-family: 'Lato', sans-serif; font-size: 15px; line-height: 1.7; }
+
+```
+.topbar { background: #08121e; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; }
+.logo { font-family: 'Crimson Pro', Georgia, serif; font-weight: 200; font-size: 1.4rem; letter-spacing: 0.16em; color: #e8ecf4; text-decoration: none; }
+.topbar-cta { background: #1e5faa; color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; padding: 9px 18px; border-radius: 8px; text-decoration: none; white-space: nowrap; }
+
+.hero { background: linear-gradient(170deg, #08121e 0%, #0d1c2e 55%, #142038 100%); padding: 52px 22px 44px; text-align: center; }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(90,170,232,0.08); border: 1px solid rgba(90,170,232,0.2); color: #5aaae8; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 22px; }
+.hero h1 { font-family: 'Crimson Pro', Georgia, serif; font-weight: 200; font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.2; color: #ffffff; margin-bottom: 14px; }
+.hero h1 em { font-style: italic; color: #5aaae8; }
+.hero p { font-size: 0.88rem; color: rgba(255,255,255,0.42); max-width: 400px; margin: 0 auto; font-weight: 300; line-height: 1.7; }
+
+.container { max-width: 580px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 44px 0 0; }
+.section-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: #6a9ac0; margin-bottom: 8px; }
+.section h2 { font-family: 'Crimson Pro', Georgia, serif; font-weight: 300; font-size: 1.6rem; color: #0c1e34; margin-bottom: 18px; }
+
+.card { background: #ffffff; border: 1px solid #dce8f4; border-radius: 12px; padding: 22px; margin-bottom: 12px; box-shadow: 0 2px 12px rgba(8,18,30,0.05); }
+.card h3 { font-family: 'Crimson Pro', Georgia, serif; font-weight: 400; font-size: 1.05rem; color: #0c1e34; margin-bottom: 8px; }
+.card p { font-size: 0.83rem; color: #4a6a8a; line-height: 1.7; }
+.card p + p { margin-top: 8px; }
+.accent { color: #1e5faa; font-weight: 700; }
+
+.svc-list { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+.svc-item { display: flex; align-items: center; gap: 10px; font-size: 0.83rem; color: #4a6a8a; }
+.svc-dot { width: 6px; height: 6px; border-radius: 50%; background: #5aaae8; flex-shrink: 0; }
+
+.steps { }
+.step { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid #dce8f4; }
+.step:last-child { border-bottom: none; }
+.step-num { width: 34px; height: 34px; border-radius: 50%; background: #eaf2fb; border: 1.5px solid #2d7dd2; display: flex; align-items: center; justify-content: center; font-family: 'Crimson Pro', Georgia, serif; font-weight: 400; font-size: 0.9rem; color: #1e5faa; flex-shrink: 0; }
+.step h3 { font-size: 0.88rem; font-weight: 700; color: #0c1e34; margin-bottom: 4px; }
+.step p { font-size: 0.8rem; color: #6a8aaa; line-height: 1.6; }
+
+.divider { height: 1px; background: #dce8f4; margin: 44px 0 0; }
+
+.highlight-box { background: #eaf2fb; border: 1px solid #c0d8f0; border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; }
+.highlight-box p { font-size: 0.83rem; color: #1e3a5a; line-height: 1.7; }
+.highlight-box strong { color: #1e5faa; }
+
+.tariffe-table { border: 1px solid #dce8f4; border-radius: 10px; overflow: hidden; margin: 14px 0 10px; }
+.tariffa-row { display: flex; align-items: center; justify-content: space-between; padding: 13px 18px; border-bottom: 1px solid #dce8f4; gap: 12px; }
+.tariffa-row:last-child { border-bottom: none; }
+.tariffa-fascia { font-size: 0.8rem; color: #4a6a8a; }
+.tariffa-pct { font-family: 'Crimson Pro', Georgia, serif; font-size: 1rem; color: #1e5faa; white-space: nowrap; font-weight: 400; }
+
+.esempio { background: #08121e; border-radius: 12px; padding: 22px; margin-bottom: 12px; }
+.esempio-title { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #3a6a9a; margin-bottom: 14px; }
+.esempio-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.esempio-row:last-child { border-bottom: none; }
+.esempio-lbl { font-size: 0.78rem; color: rgba(255,255,255,0.42); }
+.esempio-val { font-size: 0.85rem; font-weight: 700; color: #e8ecf4; }
+.esempio-val.green { color: #2ecc71; }
+.esempio-val.blue { color: #5aaae8; }
+.esempio-val.orange { color: #f39c12; }
+.esempio-note { font-size: 0.72rem; color: rgba(255,255,255,0.28); margin-top: 14px; line-height: 1.6; font-style: italic; }
+
+.clausola { padding: 16px 0; border-bottom: 1px solid #dce8f4; }
+.clausola:last-child { border-bottom: none; }
+.clausola h4 { font-size: 0.82rem; font-weight: 700; color: #0c1e34; margin-bottom: 5px; }
+.clausola p { font-size: 0.78rem; color: #6a8aaa; line-height: 1.65; }
+
+.cta-section { background: #08121e; padding: 48px 22px; text-align: center; margin-top: 44px; }
+.cta-section h2 { font-family: 'Crimson Pro', Georgia, serif; font-weight: 200; font-size: 1.8rem; color: #ffffff; margin-bottom: 10px; }
+.cta-section p { font-size: 0.84rem; color: rgba(255,255,255,0.38); margin-bottom: 24px; line-height: 1.6; }
+.cta-btn { display: inline-flex; align-items: center; gap: 8px; background: #1e5faa; color: #ffffff; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.06em; padding: 14px 28px; border-radius: 10px; text-decoration: none; }
+
+.footer { text-align: center; padding: 20px 20px 36px; font-size: 0.68rem; color: #a0bcd4; line-height: 1.7; }
+.footer a { color: #5a9ae8; text-decoration: none; }
+```
+
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html" class="logo">feedet</a>
+  <a href="index.html" class="topbar-cta">Analisi gratuita →</a>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">Trasparenza totale</div>
+  <h1>Come funziona<br><em>Feedet</em></h1>
+  <p>Tutto quello che devi sapere sul nostro servizio: come operiamo, cosa puoi aspettarti e come guadagniamo.</p>
+</div>
+
+<div class="container">
+
+  <div class="section">
+    <div class="section-label">Il servizio</div>
+    <h2>Cosa facciamo</h2>
+    <div class="card">
+      <h3>Analizziamo il tuo preventivo — gratis</h3>
+      <p>Quando ricevi un preventivo per un lavoro idraulico, termico o di climatizzazione, è difficile sapere se le cifre sono corrette. I prezzi variano enormemente e, senza punti di riferimento chiari, il rischio di pagare troppo è concreto.</p>
+      <p>Feedet confronta il tuo preventivo con i <span class="accent">prezzi reali di mercato</span> della tua zona, voce per voce, e ti fornisce una valutazione chiara e onesta entro 24 ore. Questa prima analisi è completamente gratuita.</p>
+    </div>
+    <div class="card">
+      <h3>I lavori che copriamo</h3>
+      <div class="svc-list">
+        <div class="svc-item"><div class="svc-dot"></div>Sostituzione e installazione caldaie</div>
+        <div class="svc-item"><div class="svc-dot"></div>Climatizzatori e impianti di condizionamento</div>
+        <div class="svc-item"><div class="svc-dot"></div>Impianti idraulici (bagni, cucine, ristrutturazioni)</div>
+        <div class="svc-item"><div class="svc-dot"></div>Riparazioni e manutenzioni</div>
+        <div class="svc-item"><div class="svc-dot"></div>Impianti di riscaldamento</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Il processo</div>
+    <h2>Come si svolge</h2>
+    <div class="card">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3>Inviaci il preventivo</h3>
+            <p>Compila il modulo su questa pagina oppure scrivici direttamente su WhatsApp. Puoi allegare foto, PDF o descrivere il lavoro a parole. La richiesta è gratuita e senza impegno.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3>Analizziamo per te</h3>
+            <p>Verifichiamo ogni voce del tuo preventivo confrontandola con i prezzi correnti di materiali e manodopera nella tua zona. Se troviamo margini migliorabili, elaboriamo un preventivo alternativo con un professionista della nostra rete.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3>Ricevi la valutazione</h3>
+            <p>Entro 24 ore ti contatteremo su WhatsApp con un feedback chiaro. Se il preventivo che hai ricevuto è corretto te lo diciamo subito. Se possiamo migliorarlo, ti proponiamo un'alternativa con risparmio stimato e costi trasparenti.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <h3>Decidi tu, liberamente</h3>
+            <p>Se accetti il preventivo alternativo, mettiamo in contatto te e il professionista e gestiamo il pagamento in modo trasparente. Se preferisci procedere con il tuo tecnico originale, non ti chiediamo nulla.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">La nostra economia</div>
+    <h2>Come guadagna Feedet</h2>
+
+```
+<div class="highlight-box">
+  <p>L'analisi del preventivo è sempre <strong>gratuita</strong>. Guadagniamo soltanto quando generiamo un risparmio reale per te — e solo se scegli liberamente di procedere con il nostro preventivo alternativo. Se non ti conviene, non ti costa nulla.</p>
+</div>
+
+<div class="card">
+  <h3>La nostra commissione</h3>
+  <p>Quando elaboriamo un preventivo alternativo più conveniente, la nostra commissione viene calcolata come <span class="accent">percentuale sul risparmio effettivo generato</span> rispetto al preventivo originale che avevi ricevuto.</p>
+  <p>Questa commissione è inclusa nel preventivo alternativo che ti proponiamo — quindi sai sempre in anticipo quanto paghi e quanto risparmi. Nessuna sorpresa, nessun costo nascosto.</p>
+
+  <div class="tariffe-table">
+    <div class="tariffa-row" style="background:#f8f0e8;border-left:3px solid #dca060">
+      <span class="tariffa-fascia" style="color:#8a5a20">Risparmio sotto 100€</span>
+      <span class="tariffa-pct" style="color:#8a5a20;font-size:0.82rem">Non interveniamo</span>
+    </div>
+    <div class="tariffa-row">
+      <span class="tariffa-fascia">Risparmio 100€ — 300€</span>
+      <span class="tariffa-pct">30% del risparmio</span>
+    </div>
+    <div class="tariffa-row">
+      <span class="tariffa-fascia">Risparmio 300€ — 700€</span>
+      <span class="tariffa-pct">25% del risparmio</span>
+    </div>
+    <div class="tariffa-row">
+      <span class="tariffa-fascia">Risparmio 700€ — 1.500€</span>
+      <span class="tariffa-pct">20% del risparmio</span>
+    </div>
+    <div class="tariffa-row">
+      <span class="tariffa-fascia">Risparmio oltre 1.500€</span>
+      <span class="tariffa-pct">15% del risparmio</span>
+    </div>
+  </div>
+  <p style="font-size:0.72rem;color:#8aabca;margin-top:8px">Nessuna commissione minima · La percentuale si applica sull'intero risparmio della fascia</p>
+</div>
+
+<div class="esempio">
+  <div class="esempio-title">Esempio pratico — Sostituzione caldaia</div>
+  <div class="esempio-row">
+    <span class="esempio-lbl">Preventivo originale ricevuto</span>
+    <span class="esempio-val">2.400€</span>
+  </div>
+  <div class="esempio-row">
+    <span class="esempio-lbl">Preventivo alternativo Feedet</span>
+    <span class="esempio-val">1.500€</span>
+  </div>
+  <div class="esempio-row">
+    <span class="esempio-lbl">Risparmio lordo generato</span>
+    <span class="esempio-val blue">900€</span>
+  </div>
+  <div class="esempio-row">
+    <span class="esempio-lbl">Commissione Feedet (20% di 900€)</span>
+    <span class="esempio-val orange">180€</span>
+  </div>
+  <div class="esempio-row">
+    <span class="esempio-lbl">Prezzo finale che paghi</span>
+    <span class="esempio-val">1.680€</span>
+  </div>
+  <div class="esempio-row">
+    <span class="esempio-lbl">Risparmio netto per te</span>
+    <span class="esempio-val green">720€</span>
+  </div>
+  <div class="esempio-note">La commissione Feedet è visibile nel preventivo prima che tu decida. Puoi sempre rifiutare senza alcun costo.</div>
+</div>
+
+<div class="card">
+  <h3>Perché questo modello è corretto</h3>
+  <p>Guadagniamo solo se il valore che generiamo è reale e verificabile. Non possiamo proporre lavori sottocosto: un lavoro di qualità ha un costo minimo che va rispettato. Il nostro interesse è perfettamente allineato al tuo — più risparmi, meglio è per entrambi.</p>
+</div>
+```
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Termini e condizioni</div>
+    <h2>Come operiamo</h2>
+    <div class="card">
+      <div class="clausola">
+        <h4>Riservatezza dei dati</h4>
+        <p>Le informazioni che ci fornisci vengono utilizzate esclusivamente per analizzare il tuo preventivo. Non vengono cedute a terzi, non vengono usate per finalità commerciali e non vengono condivise con gli artigiani senza il tuo esplicito consenso.</p>
+      </div>
+      <div class="clausola">
+        <h4>Natura del servizio</h4>
+        <p>Feedet fornisce una valutazione orientativa basata sui prezzi di mercato. La nostra analisi non costituisce una perizia legale né un parere professionale vincolante. La decisione finale spetta sempre a te.</p>
+      </div>
+      <div class="clausola">
+        <h4>Tempi di risposta</h4>
+        <p>Ci impegniamo a rispondere entro 24 ore lavorative dalla ricezione della richiesta. In periodi di alta domanda potremmo richiedere qualche ora in più, ma te lo comunichiamo tempestivamente.</p>
+      </div>
+      <div class="clausola">
+        <h4>Gratuità dell'analisi</h4>
+        <p>L'analisi del preventivo è gratuita e senza condizioni. Non è richiesta alcuna registrazione, abbonamento o impegno di acquisto. La commissione si applica solo se scegli di procedere con il nostro preventivo alternativo.</p>
+      </div>
+      <div class="clausola">
+        <h4>Rete di professionisti</h4>
+        <p>I professionisti della nostra rete vengono selezionati e verificati. Tuttavia Feedet non risponde direttamente dell'operato degli artigiani: la responsabilità dell'esecuzione del lavoro resta in capo al professionista incaricato.</p>
+      </div>
+      <div class="clausola">
+        <h4>Contatti e assistenza</h4>
+        <p>Per qualsiasi domanda puoi contattarci direttamente su WhatsApp al numero +39 379 354 7044. Rispondiamo a tutti i messaggi entro la giornata lavorativa.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta-section">
+  <h2>Hai un preventivo da analizzare?</h2>
+  <p>Invialo adesso — l'analisi è gratuita<br>e ricevi una risposta entro 24 ore.</p>
+  <a href="index.html" class="cta-btn">Invia il preventivo →</a>
+</div>
+
+<div class="footer">
+  Feedet · Analisi preventivi · Milano e dintorni<br>
+  <a href="index.html">← Torna al form</a>
+</div>
+
+</body>
+</html>
